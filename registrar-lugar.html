@@ -1,0 +1,244 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Reserva Ecologica Antisana</title>
+
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAQ4TIlpe0DTAoUZdBusbLA13wnQHE-z6Q&v=3.exp&callback=initMap&libraries=&v=weekly"  defer ></script>
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <link rel="icon" href="assets/img/favicon.png">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+
+</head>
+
+<body class="homepage-5 accounts">
+    <div class="preloader-main">
+        <div class="preloader-wapper">
+            <svg class="preloader" xmlns="http://www.w3.org/2000/svg" version="1.1" width="600" height="200">
+                <defs>
+                    <filter id="goo" x="-40%" y="-40%" height="200%" width="400%">
+                        <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+                        <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -8" result="goo" />
+                    </filter>
+                </defs>
+                <g filter="url(#goo)">
+                    <circle class="dot" cx="50" cy="50" r="25" fill="#8731E8" />
+                    <circle class="dot" cx="50" cy="50" r="25" fill="#8731E8" />
+                </g>
+            </svg>
+            <div>
+                <div class="loader-section section-left"></div>
+                <div class="loader-section section-right"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="scrollUp" title="Scroll To Top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <div class="main">
+        <header class="navbar navbar-sticky navbar-expand-lg navbar-dark">
+            <div class="container position-relative">
+                <a class="navbar-brand" href="index.html">
+                    <img class="navbar-brand-regular" src="assets/img/logo/logo-white.png" alt="brand-logo">
+                    <img class="navbar-brand-sticky" src="assets/img/logo/logo.png" alt="sticky brand-logo">
+                </a>
+                <button class="navbar-toggler d-lg-none" type="button" data-toggle="navbarToggler" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="navbar-inner">
+                    <button class="navbar-toggler d-lg-none" type="button" data-toggle="navbarToggler" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <nav>
+                        <ul class="navbar-nav" id="navbar-nav">
+                            <li class="nav-item">
+                                <a class="dropdown-item" href="./index.html">Inicio</a>
+                            </li>    
+                   
+                            <li class="nav-item">
+                                <a class="dropdown-item" href="./contact.html">Contacto</a>
+                            </li>
+ 
+                            <li class="nav-item">
+                                <a class="dropdown-item" href="./index.html">Salir</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+      
+
+        <section id="home" class="section welcome-area bg-overlay d-flex align-items-center">
+            <div class="container">
+                <div class="row align-items-center justify-content-center">
+                   
+                    <div class="col-12 col-lg-7">
+                        <div class="welcome-intro">
+                            <br> <br>
+                            <h1 class="text-white" id="namde_user"></h1>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-8 col-lg-5">
+                        <div class="contact-box bg-white text-center rounded p-4 p-sm-5 mt-5 mt-lg-0 shadow-lg">
+                                <div class="contact-top">
+                                    <h3 class="contact-title">Comparte tú avistamiento</h3>
+                                    <h5 class="text-secondary fw-3 py-3" id="fecha_actual"></h5>
+                                </div>
+                                <div class="row">
+                                     
+                                    <div class="col-12">
+                            
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                              <div class="input-group-prepend">
+                                              </div>
+                                                <textarea class="form-control" required  id="descripcion"  id="description"placeholder="Descripción" cols="30" rows="10"></textarea>
+                                             </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                          <div class="input-group-prepend">
+                                          </div>
+                                          <input type="file"  required class="form-control" name="titulo"  required="required">
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <button class="btn btn-bordered w-100 mt-3 mt-sm-4" onClick="guardar()" >Guardar</button>
+                                    </div>
+                                  
+
+                                    <div class="contact-top">
+                                        <h5 class="text-secondary fw-3 py-3" >Mueva el marcador para seleccionar la ubicación del avistamientos</h5>
+                                     </div>
+
+
+                                </div>
+                            <p class="form-message"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="shape-bottom">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none">
+                    <path class="shape-fill" fill="#FFFFFF" d="M421.9,6.5c22.6-2.5,51.5,0.4,75.5,5.3c23.6,4.9,70.9,23.5,100.5,35.7c75.8,32.2,133.7,44.5,192.6,49.7  c23.6,2.1,48.7,3.5,103.4-2.5c54.7-6,106.2-25.6,106.2-25.6V0H0v30.3c0,0,72,32.6,158.4,30.5c39.2-0.7,92.8-6.7,134-22.4  c21.2-8.1,52.2-18.2,79.7-24.2C399.3,7.9,411.6,7.5,421.9,6.5z"></path>
+                </svg>
+            </div>
+        </section>
+        <style>   #map { height: 100%;}</style>
+          <section class="section map-area">
+            <div id="map"></div>
+        </section>
+    </div>
+
+
+    <script src="assets/js/jquery/jquery-3.3.1.min.js"></script>
+
+    <script src="assets/js/bootstrap/popper.min.js"></script>
+    <script src="assets/js/bootstrap/bootstrap.min.js"></script>
+    <script src="assets/js/plugins/plugins.min.js"></script>
+    <script src="assets/js/active.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+
+    <script>
+
+        var hora = new Date().getHours()+':'+new Date().getMinutes();
+        $("#fecha_actual").text(new Date().toLocaleDateString()+' - '+hora);
+
+        var map, infoWindow;
+        var pos  = {lat: -0.552131, lng: -78.156258} ;
+        var user = JSON.parse( localStorage.getItem('user') );
+
+        $("#namde_user").append('Hola, '+user.username);
+
+        function initMap() {
+              map = new google.maps.Map(document.getElementById('map'), {
+              center: pos,
+              zoom: 13,
+              mapTypeId: 'satellite',
+              disableDefaultUI: true, 
+              scrollWheel:false,
+              draggable:true
+           });
+              
+           var marker2 = new google.maps.Marker({
+                position:   pos,
+                map: map,
+                draggable: true,
+            }); 
+           google.maps.event.addListener(marker2,"mouseup", (event) => {      
+                pos = {lat: event.latLng.lat(), lng: event.latLng.lng() }
+            });
+        }
+
+        function guardar(){
+            var user = JSON.parse( localStorage.getItem('user') );
+
+                
+                var titulo       = "Avistamiento Condores";
+                var descripcion  = $("#descripcion").val();
+    
+                    if (titulo == "") {
+                        Swal.fire({icon: 'error',title: 'Oops...',text: 'Titulo es requerido!'});return
+                    }else  if (descripcion == "") {
+                        Swal.fire({icon: 'error',title: 'Oops...',text: 'Descripcion es requerido!',}); return
+                    }
+
+
+                var headers = new Headers();
+                headers.append('Authorization', 'Basic user:passwd');
+
+                var formData = new FormData();
+                var fileField = document.querySelector("input[type='file']");
+
+                       
+
+                    if (fileField.files[0] ==undefined) {
+                        Swal.fire({icon: 'error',title: 'Oops...',text: 'Imagen es requerido!',}); return
+                    }
+
+
+                formData.append('user_id', user.id);
+                formData.append('titulo', titulo);
+                formData.append('descripcion', descripcion);
+                formData.append('url_imagen', fileField.files[0]);
+                formData.append('lat', pos.lat);
+                formData.append('lng', pos.lng);
+
+                    
+                fetch('http://reserva-ecologica-antisana.online/back/public/api/avistamientos/registrar', {
+                        method:'POST',
+                        headers: headers,
+                        body: formData
+                    })
+                    .then(response => response.json())
+                    .then(json => {
+
+                        if (  json.success ) {
+                            Swal.fire({icon: 'success',title: '',text: json.success.mensaje }); 
+
+                            
+                            setTimeout(function(){ 
+                                            location.reload();
+                                        },1500);
+
+
+                        }                        
+                    });   
+
+        }
+    </script>
+</body>
+
+</html>
